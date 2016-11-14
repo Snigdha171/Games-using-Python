@@ -110,7 +110,7 @@ except ValueError:
     print("Number of Questions answered incorrectly - ", questions_not_correct)
 
 #Plotting the graph
-objects = ('Question played','Correct answer','Incorrect Answer')
+objects = ('Questions played','Correct answers','Incorrect answers')
 y_pos = np.arange(len(objects))
 stats = [count_of_questions,questions_correct,questions_not_correct]
 plt.bar(y_pos, stats, align='center', alpha=0.5)
