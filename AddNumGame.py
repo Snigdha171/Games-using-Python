@@ -9,6 +9,7 @@
 #History
 # Date          Description
 # Nov-13-2016   Initial verion
+# Nov-14-2016   Changed the format. Allowing user to play without any prompt if it's a win
 #############################################################
 
 import random
@@ -23,7 +24,7 @@ if Ready == "Y":
     def play():
         num1=random.randint(1,25)
         num2=random.randint(1,25)
-        print("The numbers are : " + str(num1) + "+" + str(num2))
+        print("Add the numbers : " + str(num1) + "+" + str(num2))
         startTime = datetime.now().second
         num3=num1 + num2
         ans=int(input("Input sum: "))
@@ -37,10 +38,10 @@ if Ready == "Y":
         else:
             if(ans == num3):
                 print(" You won! You took " + str(timeDiff) + " seconds to answer!!")
-                print("Play again?")
-                again = input("Y/N >> ")
-                if again == "Y":
-                    play()  
+                #print("Play again?")
+                #again = input("Y/N >> ")
+                #if again == "Y":
+                play()  
             else:
                 print("Incorrect answer. You lost!!")
 
