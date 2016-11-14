@@ -3,6 +3,6 @@ This repository contains games developed using Python language
 
 Game 1 - 
 
-Description - Add 2 numbers within 3 seconds.
+Description - Perform calculation on 2 numbers within 5 seconds.
 
-Script Name - AddNumGame.py
+Script Name - NumGame.py
