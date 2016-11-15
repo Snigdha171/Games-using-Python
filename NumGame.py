@@ -52,7 +52,7 @@ try:
                 num3=num1 - num2
             else:
                 num3=num1 * num2
-            ans=int(input("Input sum: "))
+            ans=int(input("Input result: "))
             endTime = datetime.now().second
             timeDiff = endTime - startTime
             if(timeDiff < 0):
