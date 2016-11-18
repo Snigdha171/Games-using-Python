@@ -9,6 +9,8 @@
 #History
 # Date          Description
 # Nov-16-2016   Initial verion
+# Nov-18-2016   Customized the bar plot
+# Nov-18-2016   Handled blank value in input text box
 #############################################################
 
 #Importing required modules
@@ -24,7 +26,7 @@ master = tk.Tk()
 master.title('Number Game')
 
 #Set the frame size
-master.geometry("400x150")
+master.geometry("400x200")
 
 #Defining Global variables
 userAnswer=None
@@ -90,6 +92,11 @@ def evaluate(event):
     if(timeDiff < 0):
         timeDiff = 60 - abs(timeDiff)
     userAnswer = entry.get()
+    if userAnswer == "":
+        warn.configure(text = "Answer field cannot be left blank. Please enter a value!!")
+    else:
+        warn.configure(text = "")
+        
     if int(userAnswer) == int(sysAnswer):
         #If answer is correct, check if time difference is less than 5
         if(timeDiff < 5):
@@ -131,6 +138,9 @@ entry = tk.Entry(master)
 entry.bind("<Return>", evaluate)
 entry.pack()
 
+warn = tk.Label(master)
+warn.pack()
+
 res = tk.Label(master)
 res.pack()
 
@@ -142,16 +152,25 @@ exitButton.pack(side="top")
 master.mainloop()
 
 total_questions = count_of_questions - 1
-#Plotting the bar graph
-plt.figure(0)
-objects = ('Total Number of Questions','Correctly Answered within Time','Correctly Answered beyond time', 'Incorrectly answered')
-y_pos = np.arange(len(objects))
-stats = [total_questions,questions_correct_wt,questions_correct_bt,questions_not_correct]
-plt.bar(y_pos, stats, align='center', alpha=0.5, facecolor='#9999ff')
-plt.xticks(y_pos, objects)
-plt.ylabel('Numbers')
-plt.title('Your Result!') 
 
+#Plotting the bar graph
+
+if str(total_questions) != "0":
+    plt.figure(0)
+    ax1 = plt.subplot2grid((1,1), (0,0))
+    objects = ('Total Number of Questions','Correctly Answered within Time','Correctly Answered beyond time', 'Incorrectly answered')
+    y_pos = np.arange(len(objects))
+    stats = [total_questions,questions_correct_wt,questions_correct_bt,questions_not_correct]
+    #plt.bar(y_pos, stats, align='center', alpha=0.5, facecolor='#9999ff')
+    ax1.bar(y_pos, stats, align='center', alpha=0.5, facecolor='#9999ff')
+    plt.xticks(y_pos, objects)
+    plt.ylabel('Numbers')
+    plt.title('Your Result!') 
+	 
+    for label in ax1.xaxis.get_ticklabels():
+        label.set_rotation(45)
+
+    plt.subplots_adjust(left=0.09, bottom=0.20, right=0.94, top=0.90)
 
 #Plotting the pie chart
 
