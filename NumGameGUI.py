@@ -97,18 +97,18 @@ def evaluate(event):
     else:
         warn.configure(text = "")
         
-    if int(userAnswer) == int(sysAnswer):
-        #If answer is correct, check if time difference is less than 5
-        if(timeDiff < 5):
-            res.configure(text = "\nCorrectly answered! You have answered within time")
-            incrementQCWT()
+        if int(userAnswer) == int(sysAnswer):
+            #If answer is correct, check if time difference is less than 5
+            if(timeDiff < 5):
+                res.configure(text = "\nCorrectly answered! You have answered within time")
+                incrementQCWT()
+            else:
+                res.configure(text = "\nCorrectly answered but you have taken more than 5 seconds!!")
+                incrementQCBT()
         else:
-            res.configure(text = "\nCorrectly answered but you have taken more than 5 seconds!!")
-            incrementQCBT()
-    else:
-        res.configure(text = "\nWrong! The correct value is : " + str(sysAnswer))
-        incrementQNC()
-    getQuestion()
+            res.configure(text = "\nWrong! The correct value is : " + str(sysAnswer))
+            incrementQNC()
+        getQuestion()
 
 def endGame():
     print("No. of questions attempted - " + str(int(count_of_questions)-1) + "\nNo. of questions correctly answered within time - " + str(questions_correct_wt))
@@ -170,7 +170,7 @@ if str(total_questions) != "0":
     for label in ax1.xaxis.get_ticklabels():
         label.set_rotation(45)
 
-    plt.subplots_adjust(left=0.09, bottom=0.20, right=0.94, top=0.90)
+    plt.subplots_adjust(left=0.09, bottom=0.40, right=0.94, top=0.90)
 
 #Plotting the pie chart
 
