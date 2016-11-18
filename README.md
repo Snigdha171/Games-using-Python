@@ -15,10 +15,16 @@ Script Name - NumGameGUI.py
 
 
 Note : If you get an error like "No module available" while running the script, please follow these steps - 
-1. Press ctrl+R. This shall open the Run window. 
+
+1. Press ctrl+R. This shall open the Run window.
+
 2. Type cmd to open the command prompt
+
 3. Type the command - pip install (module name)
+
 Example - pip install matplotlib
         - pip install numpy
+        
 4. If you get the error as "pip: command not found", you should give the full address where pip is located.
+
 Example - C:\[pythondir]\scripts\pip install (module name)
