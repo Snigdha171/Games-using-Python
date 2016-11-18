@@ -23,6 +23,7 @@ Note : If you get an error like "No module available" while running the script, 
 3. Type the command - pip install (module name)
 
 Example - pip install matplotlib
+
         - pip install numpy
         
 4. If you get the error as "pip: command not found", you should give the full address where pip is located.
